@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		姓名:<input type="text" v-model="emp.name"><br>
+		年龄:<input type="text" v-model="emp.age">
+			<button v-on:click="add">加</button><br>
+		爱好:<input type="checkbox" v-model="emp.hobby" value="lol">lol
+			<input type="checkbox" v-model="emp.hobby" value="农药">农药
+			<input type="checkbox" v-model="emp.hobby" value="dota">dota
+		 <ul>
+		        <li v-for="(value,key,index) in emp">
+		             {{index}} - {{key}} : {{value}}
+		        </li>
+		 </ul> 
+	</div>
+	<script type="text/javascript">
+		var vue = new Vue({
+			el:"#app",
+			data:{
+				emp:{
+					name:"张三",
+					age:"19",
+					hobby:[]
+				}
+			},
+			methods:{
+				add(){
+					this.emp.age++;
+				}
+			},
+			created(){
+				this.emp.name="张三"
+			}
+		})
+	</script>
+</body>
+</html>

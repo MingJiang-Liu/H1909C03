@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{add()}}
+		<span v-text="info"></span>				
+		<span v-html="info"></span>	
+	</div>
+	<script type="text/javascript"> 
+		//实例化vue对象
+		var app = new Vue({
+			el:"#app",
+			data:{
+				num:18,
+				info:"<h3>标题</h3>"
+			},
+			methods:{
+				add(){
+					return 19;
+				}
+			}
+		});
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+							<!-- v-model 双向绑定 -->
+		<input type="text" v-model="num">
+		<!-- 插值表达式{{}} -->
+	{{info}}
+	有
+	<button v-on:click="num++">加1</button>
+	<button @click="num--">减1</button>
+	{{num}}
+	位同学
+	
+	</div>
+	<script type="text/javascript"> 
+		//实例化vue对象
+		var app = new Vue({
+			el:"#app",
+			data:{
+				info:"小实训",
+				num:"44"
+			}
+		});
+		
+	</script>
+</body>
+</html>
