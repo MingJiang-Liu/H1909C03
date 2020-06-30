@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	{{format}}
+	
+</div>
+	<script type="text/javascript">  
+		var app = new Vue({   
+			el:"#app",   
+			data:{     
+				datetime:1429032123021
+			},
+			computed:{
+				format(){
+					var year = new Date(this.datetime).getFullYear();
+					var month = new Date(this.datetime).getMonth();
+					var date = new Date(this.datetime).getDate();
+					return year+"-"+month+"-"+date
+				}
+			}
+		}) 
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

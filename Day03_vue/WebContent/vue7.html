@@ -6,27 +6,37 @@
 <script type="text/javascript" src="./js/vue.js"></script>
 </head>
 <body>
-	<div id="app">    
-		<ul>
-			<li v-for="user in users">
-			 {{user.name}} : {{user.gender}} : {{user.age}}
-			</li>
-		</ul>
-	</div> 
+<!-- 	<div id="app">     -->
+<!-- 		<ul> -->
+<!-- 			<li v-for="user in users"> -->
+<!-- 			 {{user.name}} : {{user.gender}} : {{user.age}} -->
+<!-- 			</li> -->
+<!-- 		</ul> -->
+<!-- 	</div>  -->
 <!-- 	 <div id="app"> -->
-<!-- 	        <ul> -->
-<!-- 	             <li v-for="(user,index) in users"> -->
+<!-- 	        <ul>								//判断性别为女			 -->
+<!-- 	             <li v-for="(user,index) in users"  v-if="user.gender=='女'"> -->
 <!-- 	                  {{index}} - {{user.name}} : {{user.gender}} : {{user.age}} -->
 <!-- 	               </li> -->
 <!-- 	            </ul> -->
 <!-- 	         </div> -->
+<div id="app">
+	        <ul>
+	             <li v-for="(user,index) in users">
+	                  {{index}} - {{user.name}} : {{user.gender}} : {{user.age}}
+	    			<span v-if="user.age>=30">讲师</span>
+	    			<span v-else-if="user.age>=20">学长</span> 
+	    			<span v-else>学妹</span>          
+	    </li>
+	            </ul>
+	         </div>
 	<script type="text/javascript">  
 		var app = new Vue({   
 			el:"#app",   
 			data:{     
 				users:[
 					{name:'柳岩', gender:'女', age: 21},   
-					{name:'虎哥', gender:'男', age: 30},
+					{name:'虎哥', gender:'男', age: 35},
 					{name:'范冰冰', gender:'女', age: 24}, 
                 	{name:'刘亦菲', gender:'女', age: 18},  
               		{name:'迪丽热巴', gender:'女', age: 25}

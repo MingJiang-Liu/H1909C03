@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "
+http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiyun.mapper.EmpMapper">
+	<resultMap type="emp" id="RM">
+		<id column="eid" property="eid"/>
+		<result column="ename" property="ename"/>
+		<result column="sex" property="sex"/>
+		<result column="pic" property="pic"/>
+		<result column="bir" property="bir"/>
+		<result column="depid" property="depid"/>
+			<association property="dept" javaType="dept">
+				<id column="depid" property="depid"/>
+				<result column="dname" property="dname"/>
+			</association>
+	</resultMap>
+	<select id="findAll" resultMap="RM">
+		select * from emp,dept where emp.depid=dept.depid
+	</select>
+</mapper>
