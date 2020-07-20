@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.jiyun.bean.Dept;
 import com.jiyun.bean.Emp;
 import com.jiyun.service.EmpService;
@@ -26,9 +28,11 @@ public class EmpController {
 	}
 	@RequestMapping("findAll")
 	@ResponseBody
-	public List<Emp> findAll() {
+	public PageInfo<Emp> findAll(Integer pageNum,Integer pageSize) {
+		PageHelper.startPage(pageNum, 2);
 		List<Emp> elist = empService.findAll();
-		return elist;
+		PageInfo<Emp> info = new PageInfo<Emp>(elist);
+		return info;
 	}
 	
 	//跳转到添加
@@ -64,4 +68,5 @@ public class EmpController {
 		int i = empService.deleteAll(ids);
 		return i;
 	}
+	
 }

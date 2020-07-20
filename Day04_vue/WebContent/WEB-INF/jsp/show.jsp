@@ -68,9 +68,9 @@
 				ids:[]
 			},
 			created(){
-				axios.post("${pageContext.request.contextPath }/emp/findAll.do").then(function(res){
-					var elist = res.data;
-					table.emps = elist; 
+				axios.post("${pageContext.request.contextPath }/emp/findAll.do?pageNum=1").then(function(res){
+					table.emps = res.data.elist;
+			
 				});
 				axios.post("${pageContext.request.contextPath }/emp/findDept.do").then(function(res){
 					table.dlist = res.data;
